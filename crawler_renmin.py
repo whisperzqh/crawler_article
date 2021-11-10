@@ -11,25 +11,26 @@ data_list = []
 # 获取文章详细内容
 def get_content(url):
     user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.54 Safari/537.36"
-    cookie = "__jsluid_h=86a123201aaef7d0fba887feeba1e857; wdcid=3643bc4051ff327b; wdses=16a7083ae70aa825; ci_session=45lgu4vhg1kmkbcfl0tervp1evfidhlc; wdlast=1635904635"
+    cookie = "__jsluid_h=86a123201aaef7d0fba887feeba1e857; wdcid=3643bc4051ff327b; ci_session=qtsqiu3bs9n7qqp2j6i0geaj4enl8ksp; wdses=2aedb863df0ae120; wdlast=1636340857"
     headers = {"User-Agent": user_agent, "Cookie": cookie}
     request1 = urllib.request.Request(url, headers=headers)
     response1 = urllib.request.urlopen(request1)
     contents1 = response1.read()
     soup1 = BeautifulSoup(contents1, "html.parser")
     tag = soup1.find('div', {'class': 'd2txt_con clearfix'})
-    content_str = ''
-    for p_item in tag.find_all('p'):
-        bef = p_item.get_text()
-        if len(bef):
-            content_str = content_str + bef
+    content_str = tag.get_text()
+    # print(tag.get_text())
+    # for p_item in tag.find_all('p'):
+    #     bef = p_item.get_text()
+    #     if len(bef):
+    #         content_str = content_str + bef
     return content_str
 
 
 # 爬虫函数
 def gydzf(url):
     user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.54 Safari/537.36"
-    cookie = "__jsluid_h=86a123201aaef7d0fba887feeba1e857; wdcid=3643bc4051ff327b; wdses=16a7083ae70aa825; ci_session=45lgu4vhg1kmkbcfl0tervp1evfidhlc; wdlast=1635904635"
+    cookie = "__jsluid_h=86a123201aaef7d0fba887feeba1e857; wdcid=3643bc4051ff327b; ci_session=qtsqiu3bs9n7qqp2j6i0geaj4enl8ksp; wdses=2aedb863df0ae120; wdlast=1636340857"
     headers = {"User-Agent": user_agent, "Cookie": cookie}
     request = urllib.request.Request(url, headers=headers)
     response = urllib.request.urlopen(request)
