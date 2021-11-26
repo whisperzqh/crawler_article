@@ -11,7 +11,7 @@ data_list = []
 # 获取文章详细内容
 def get_content(url):
     user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.54 Safari/537.36"
-    cookie = "__jsluid_h=86a123201aaef7d0fba887feeba1e857; wdcid=3643bc4051ff327b; ci_session=qtsqiu3bs9n7qqp2j6i0geaj4enl8ksp; wdses=2aedb863df0ae120; wdlast=1636340857"
+    cookie = "__jsluid_h=86a123201aaef7d0fba887feeba1e857; wdcid=3643bc4051ff327b; ci_session=s01ahq412c4b5mm3jgf03e7noirqraiu; wdses=2dc90c70610e77f3; wdlast=1637807287"
     headers = {"User-Agent": user_agent, "Cookie": cookie}
     request1 = urllib.request.Request(url, headers=headers)
     response1 = urllib.request.urlopen(request1)
@@ -63,7 +63,7 @@ def gydzf(url):
 
 # 打包成json文件
 def to_json(name):
-    filename = "renmin.json"
+    filename = "renmintext.json"
     with open(filename, 'w', encoding='utf-8') as file_obj:
         json.dump(name, file_obj, ensure_ascii=False)
 
